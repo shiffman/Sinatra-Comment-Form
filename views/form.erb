@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nature of Code Final Projects</title>
+    <style type="text/css">
+      body {
+        font-family: "Georgia";
+        width: 80%;
+        background: white;
+      }
+      h1 {
+        font-family: "Georgia";        
+        font-size: 42pt;
+        color: #000;
+        border-bottom: 1px solid #555;
+      }
+
+      #caption {
+        margin-top: -20px;
+        color: #121212;
+        font-size: 18pt;
+      }
+      input[type="text"], textarea {
+        padding: 5px;
+        width: 40%;
+        height: 40px;
+        color: #555;
+        font-size: 16pt;
+
+      }
+      textarea {
+        font-size: 10pt;
+        height: 120px;
+      }
+
+      textarea:focus, input:focus {
+        border: 2px solid #900;
+        background: pink;
+      }
+
+
+      #form {
+        font-family: "Georgia";
+        margin-top: 50px;
+      }
+      #form input, #form textarea {
+        padding: 5px;
+        margin: 0px 0px 10px 0px;
+        border: 1px solid #000;
+      }
+      label {
+        font-family: "Georgia";
+        float: left;
+        text-align: left;
+        margin-right: 15px;
+        margin-top: 8px;
+        width: 120px;
+        font-size: 16pt;
+      }
+
+    </style>
+  </head>
+ 
+  <body>
+      <h1>The Nature of Code Final Comments</h1>
+      <div id ="caption"><em>Use this during transitions between presentations to leave a comment.</em></div>
+      
+      <div id="form">
+        <form action="/" method="POST">
+          <p><label>Your name:</label> <input type="text" name="yourname" value ="<%= @yourname %>" /></p>
+          <p><label>Presenter:</label> <input type="text" name="presenter" value ="" /></p>
+          <p><label>Comment:</label> <textarea name="commenttext"/></textarea></p>
+          <p><input type="submit" value="Submit!" /></p>
+        </form>
+      </div>
+
+      <% if @commenttext %><p>Thank you for your feedback.</p><% end %>
+
+  </body>
+</html>
