@@ -35,10 +35,10 @@ Once this returns successfully, push your app to Heroku.
 
 ## Heroku Database Creation
 
-If you're using DataMapper with a database, you will need to add a database. Run these commands from the root of your project:
+If you're using DataMapper with a database, you will need to add a database. Run these commands from the root of your project, replacing the name of the database in the last command with the name that is given to you after running the first command.
 
 	$ heroku addons:add heroku-postgresql:dev
-	$ heroku pg:promote [put whatever your big POSTGRES name is here]
+	$ heroku pg:promote HEROKU_POSTGRESQL_REPLACEME_URL
 
 Now you've created your database. Now you need to update the tables:
 
@@ -46,3 +46,5 @@ Now you've created your database. Now you need to update the tables:
 	$ require './app.rb'
 	$ DataMapper.auto_upgrade!
 	$ exit
+
+That's it! You're ready to see your website on yourappname.herokuapp.com
