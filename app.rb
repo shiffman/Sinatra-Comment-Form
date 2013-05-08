@@ -1,12 +1,10 @@
 require 'rubygems'
 require 'bundler'
-require 'sinatra'
-require 'dm-core'
 Bundler.require
 
 set :root, File.dirname(__FILE__)
 
-DataMapper::setup(:default, {:adapter => 'yaml', :path => 'db'})
+DataMapper::setup(:default, ENV['DATABASE_URL'] || {:adapter => 'yaml', :path => 'db'})
 
 class Comment
   include DataMapper::Resource
@@ -33,11 +31,11 @@ post '/' do
 	@commenttext = params[:commenttext]
 
 	# new comment
-  	comment = Comment.new
-  	comment.yourname = @yourname
-  	comment.presenter = @presenter
-  	comment.commenttext = @commenttext
-  	comment.save
+  comment = Comment.new
+  comment.yourname = @yourname
+  comment.presenter = @presenter
+  comment.commenttext = @commenttext
+  comment.save
 
 	erb :form
 end
