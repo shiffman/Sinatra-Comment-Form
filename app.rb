@@ -12,7 +12,7 @@ class Comment
   property :id,   Serial
   property :yourname, String
   property :presenter, String
-  property :commenttext, String
+  property :commenttext, Text
 end
 
 DataMapper.finalize
