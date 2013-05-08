@@ -17,6 +17,24 @@ end
 
 DataMapper.finalize
 
+get '/comments' do
+  # matches main route for the application, itp.nyu.edu/~irs221/sinatra/apt_listings/
+  
+  # Use these later in the erb file
+  @allcomments = ''
+  @total_comments = Comment.count
+  
+  for entry in Comment.all
+    @allcomments += <<-HTML
+      <p>#{entry.id},#{entry.yourname},#{entry.presenter},#{entry.commenttext}</p>
+  HTML
+  end
+  
+  # Show the html from views/index.erb
+  erb :list
+end
+
+
 
 # Just the form
 get '/' do
